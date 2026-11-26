@@ -23,8 +23,7 @@ public class Main {
                             bruteForce.executarMissio1();
                             break;
                         case "2":
-                            System.out.println("=== MISSIÓ 2: ALPHANUMERIC HUNTER ===");
-                            System.out.println("Pendent d'implementar (patró c?NNNN sobre documents/02_projecte_secret.pdf).");
+                            AlphanumericHunter.executarMissio2();
                             break;
                         case "3":
                             dictionaryAttack.executarMissio3();                            
