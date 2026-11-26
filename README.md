@@ -105,11 +105,11 @@ PE03/
 
 ## 👥 Equip
 
-| Integrant | Responsabilitat principal |
-|-----------|---------------------------|
-| **Ivan Carrasco** | Base del projecte i integració |
-| **Oriol Sardà** | Missions 1 i 3 |
-| **Gerard Pedrosa** | Missions 2 i 4 + estadístiques |
+| Integrant |
+|-----------|
+| **Ivan Carrasco** |
+| **Oriol Sardà** |
+| **Gerard Pedrosa** |
 
 <div align="center">
 
