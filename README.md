@@ -1,32 +1,78 @@
-# PE03 · PDF Hunters
+<div align="center">
 
-> Pràctica avaluable 03 de **Programació de Processos i Serveis** (DAM 2), realitzada pel **Grup 7**.
+# 🔓 PDF Hunters
 
-## 👥 Equip
+### PE03 · Recuperació de contrasenyes de documents PDF
 
-| Integrant       |
-|-----------------|
-| Ivan Carrasco   |
-| Gerard Pedrosa  |
-| Oriol Sardà     |
+Pràctica avaluable 03 de **Programació de Processos i Serveis** · DAM 2 · **Grup 7**
+
+![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Apache PDFBox](https://img.shields.io/badge/Apache%20PDFBox-3.0.8-D22128?style=for-the-badge&logo=apache&logoColor=white)
+
+</div>
+
+---
 
 ## 📝 Descripció
 
-L'objectiu d'aquesta pràctica és desenvolupar una aplicació de consola en Java que recuperi contrasenyes de documents PDF protegits mitjançant diferents estratègies de cerca i n'analitzi el rendiment.
+Aplicació de consola en **Java** que recupera contrasenyes de documents **PDF protegits** mitjançant diferents estratègies de cerca i n'analitza el rendiment.
 
-L'aplicació presenta un menú interactiu des d'on es poden executar quatre missions sobre documents PDF diferents i consultar-ne les estadístiques:
+Presenta un **menú interactiu** des d'on s'executen quatre missions sobre documents PDF diferents i se'n consulten les estadístiques.
 
-- **Missió 1 (PIN Breaker):** cerca per força bruta de totes les combinacions de `0000` a `9999` sobre `documents/01_caixa_forta.pdf`.
-- **Missió 2 (Alphanumeric Hunter):** cerca restringida segons el patró `c?NNNN` (segona lletra dins `{a, e, i, o, u, t, r}` i quatre dígits del `0` al `9`) sobre `documents/02_projecte_secret.pdf`.
-- **Missió 3 (Dictionary Attack):** atac de diccionari provant les paraules de `resources/diccionari.txt` sobre `documents/03_contrasenya_director.pdf`.
-- **Missió 4 (Final Boss):** generació de variants a partir del diccionari (inicial en majúscula i dos dígits finals de `00` a `99`) sobre `documents/04_arxiu_ultrasecret.pdf`.
-- **Estadístiques:** mostra una taula comparativa amb els intents, el temps en segons i la velocitat d'intents per segon de les missions executades.
+---
 
-## 🛠️ Tecnologies
+## 🎯 Missions
 
-- **Java 17**
-- **Maven** per a la gestió de dependències, compilació i execució
-- **Apache PDFBox 3.0.8** per a la validació de contrasenyes en fitxers PDF
+| # | Missió | Estratègia | Document |
+|:-:|--------|------------|----------|
+| 1 | **PIN Breaker** | Força bruta de totes les combinacions de `0000` a `9999` | `01_caixa_forta.pdf` |
+| 2 | **Alphanumeric Hunter** | Cerca restringida amb el patró `c?NNNN` *(2a lletra ∈ `{a,e,i,o,u,t,r}`, 4 dígits)* | `02_projecte_secret.pdf` |
+| 3 | **Dictionary Attack** | Atac de diccionari amb les paraules de `resources/diccionari.txt` | `03_contrasenya_director.pdf` |
+| 4 | **Final Boss** | Variants del diccionari *(inicial majúscula + 2 dígits de `00` a `99`)* | `04_arxiu_ultrasecret.pdf` |
+| 📊 | **Estadístiques** | Taula comparativa: intents, temps i velocitat de cada missió | — |
+
+---
+
+## ⚙️ Execució
+
+> L'aplicació s'executa des de la carpeta `demo/`, on es resolen les rutes a `documents/` i `resources/`.
+
+```bash
+cd demo
+mvn compile
+mvn exec:java
+```
+
+Un cop iniciada, trieu una opció del menú:
+
+```text
+===== PDF HUNTERS =====
+1. PIN BREAKER (Missió 1: PIN de 4 dígits)
+2. ALPHANUMERIC HUNTER (Missió 2: patró c?NNNN)
+3. DICTIONARY ATTACK (Missió 3: diccionari)
+4. FINAL BOSS (Missió 4: diccionari + variants)
+5. ESTADÍSTIQUES (Taula comparativa)
+0. SORTIR
+```
+
+Maven descarrega automàticament la dependència d'**Apache PDFBox 3.0.8** definida al `pom.xml`.
+
+---
+
+## 🧩 Classes principals
+
+| Classe | Responsabilitat |
+|--------|-----------------|
+| `Main` | Menú interactiu que integra les quatre missions i les estadístiques |
+| `PDFChecker` | Comprova si una contrasenya obre un PDF *(base compartida per totes les missions)* |
+| `BruteForce` | Missió 1 — força bruta d'un PIN de 4 dígits |
+| `AlphanumericHunter` | Missió 2 — cerca restringida amb el patró `c?NNNN` |
+| `DictionaryAttack` | Missió 3 — atac de diccionari |
+| `PasswordVariants` | Missió 4 — diccionari amb generació de variants |
+| `Statistics` | Recull i mostra la taula comparativa de les missions |
+
+---
 
 ## 📁 Estructura del projecte
 
@@ -53,3 +99,20 @@ PE03/
                     ├── DictionaryAttack.java
                     ├── PasswordVariants.java
                     └── Statistics.java
+```
+
+---
+
+## 👥 Equip
+
+| Integrant | Responsabilitat principal |
+|-----------|---------------------------|
+| **Ivan Carrasco** | Base del projecte i integració |
+| **Oriol Sardà** | Missions 1 i 3 |
+| **Gerard Pedrosa** | Missions 2 i 4 + estadístiques |
+
+<div align="center">
+
+🛠️ **Java 17** · **Maven** · **Apache PDFBox 3.0.8**
+
+</div>
