@@ -10,6 +10,7 @@ public class Main {
 
     private void iniciar() {
         BruteForce bruteForce = new BruteForce();
+        DictionaryAttack dictionaryAttack = new DictionaryAttack();
         boolean sortir = false;
         
         try (Scanner scanner = new Scanner(System.in)) {
@@ -26,8 +27,7 @@ public class Main {
                             System.out.println("Pendent d'implementar (patró c?NNNN sobre documents/02_projecte_secret.pdf).");
                             break;
                         case "3":
-                            System.out.println("=== MISSIÓ 3: DICTIONARY ATTACK ===");
-                            System.out.println("Pendent d'implementar (diccionari sobre documents/03_contrasenya_director.pdf).");
+                            dictionaryAttack.executarMissio3();                            
                             break;
                         case "4":
                             System.out.println("=== MISSIÓ 4: FINAL BOSS ===");
