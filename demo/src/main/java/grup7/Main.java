@@ -12,43 +12,43 @@ public class Main {
         BruteForce bruteForce = new BruteForce();
         DictionaryAttack dictionaryAttack = new DictionaryAttack();
         PasswordVariants passwordVariants = new PasswordVariants();
+        Statistics statistics = new Statistics();
         boolean sortir = false;
-        
+
         try (Scanner scanner = new Scanner(System.in)) {
-                while (!sortir) {
-                    mostrarMenu();
-                    String entrada = scanner.nextLine().trim();
+            while (!sortir) {
+                mostrarMenu();
+                String entrada = scanner.nextLine().trim();
 
-                    switch (entrada) {
-                        case "1":
-                            bruteForce.executarMissio1();
-                            break;
-                        case "2":
-                            AlphanumericHunter.executarMissio2();
-                            break;
-                        case "3":
-                            dictionaryAttack.executarMissio3();                            
-                            break;
-                        case "4":
-                            passwordVariants.executarMissio4();
-                            break;
-                        case "5":
-                            System.out.println("=== ESTADÍSTIQUES ===");
-                            System.out.println("Pendent d'implementar (comparativa de les missions executades).");
-                            break;
-                        case "0":
-                            sortir = true;
-                            System.out.println("Sortint de PDF HUNTERS...");
-                            break;
-                        default:
-                            System.out.println("Opció no vàlida. Introdueix un número del menú (0-5).");
-                            break;
-                    }
-
-                    System.out.println();
+                switch (entrada) {
+                    case "1":
+                        statistics.afegeix(bruteForce.executarMissio1());
+                        break;
+                    case "2":
+                        statistics.afegeix(AlphanumericHunter.executarMissio2());
+                        break;
+                    case "3":
+                        statistics.afegeix(dictionaryAttack.executarMissio3());
+                        break;
+                    case "4":
+                        statistics.afegeix(passwordVariants.executarMissio4());
+                        break;
+                    case "5":
+                        statistics.mostraTaulaComparativa();
+                        break;
+                    case "0":
+                        sortir = true;
+                        System.out.println("Sortint de PDF HUNTERS...");
+                        break;
+                    default:
+                        System.out.println("Opció no vàlida. Introdueix un número del menú (0-5).");
+                        break;
                 }
+
+                System.out.println();
             }
         }
+    }
 
     private static void mostrarMenu() {
         System.out.println("===== PDF HUNTERS =====");
