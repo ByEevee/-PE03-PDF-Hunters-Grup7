@@ -2,7 +2,7 @@ package grup7;
 
 public class BruteForce {
 
-    private static final String RUTA_PDF = "documents/01_caixa_forta.pdf";
+    private static final String RUTA_PDF = "demo/documents/01_caixa_forta.pdf";
     private static final int MIN_PIN = 0;
     private static final int MAX_PIN = 9999;
 
