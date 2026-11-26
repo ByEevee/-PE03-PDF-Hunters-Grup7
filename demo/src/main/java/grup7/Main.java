@@ -11,6 +11,7 @@ public class Main {
     private void iniciar() {
         BruteForce bruteForce = new BruteForce();
         DictionaryAttack dictionaryAttack = new DictionaryAttack();
+        PasswordVariants passwordVariants = new PasswordVariants();
         boolean sortir = false;
         
         try (Scanner scanner = new Scanner(System.in)) {
@@ -29,8 +30,7 @@ public class Main {
                             dictionaryAttack.executarMissio3();                            
                             break;
                         case "4":
-                            System.out.println("=== MISSIÓ 4: FINAL BOSS ===");
-                            System.out.println("Pendent d'implementar (diccionari + variants sobre documents/04_arxiu_ultrasecret.pdf).");
+                            passwordVariants.executarMissio4();
                             break;
                         case "5":
                             System.out.println("=== ESTADÍSTIQUES ===");
